@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Common.master.cs" Inherits="SaludArTE.Common" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<%=Page.UICulture%>">
+<head runat="server">
+    <title><%=Resources.Title%></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="<%=Page.ResolveUrl("~/Resources/bootstrap/css/bootstrap.min.css") %>" rel="stylesheet" />
+    <script src="<%=Page.ResolveUrl("~/Resources/jquery/jquery-3.2.1.min.js") %>"></script>
+    <asp:ContentPlaceHolder ID="HeadAreaPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="padding-top: 50px">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Default.aspx"><%=Resources.Title%></a>
+            </div>
+            <% if (Page.User.Identity.IsAuthenticated)
+                { %>
+            <form class="navbar-form navbar-right" action="<%=Page.ResolveUrl("~/Logout.aspx") %>" method="post">
+                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-log-out"></i></button>
+            </form>
+            <% } %>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <asp:ContentPlaceHolder ID="ContainerPlaceHolder" runat="server">
+        
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <asp:ContentPlaceHolder ID="NavAreaPlaceHolder" runat="server">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </asp:ContentPlaceHolder>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-10 main">
+                <h1 class="page-header"><%=Page.Title%></h1>
+
+                <form id="formMain" runat="server">
+                        <asp:ContentPlaceHolder ID="MainFormAreaPlaceholder" runat="server">
+                        </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </div>
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    <script src="<%=Page.ResolveUrl("~/Resources/bootstrap/js/bootstrap.min.js") %>"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿[
+  {
+    "Id": "{9E493E48-5116-4C65-85BF-CA10865099AB}",
+    "Username": "mromero",
+    "Password": "abcd",
+    "GivenName": "Matias Romero",
+    "Roles": [ "admin", "backend" ]
+  },
+  {
+    "Id": "{8D61E3B2-719D-4B76-BF20-0D14B8AC3D6C}",
+    "Username": "emartinez",
+    "Password": "abcd",
+    "GivenName": "Esteban Martinez",
+    "Roles": [ "backend" ]
+  },
+  {
+    "Id": "{E6E36CF5-1A3E-4CE9-85BE-07D4273E45C1}",
+    "Username": "cliente",
+    "Password": "abcd",
+    "GivenName": "Cliente Perez",
+    "Roles": []
+  }
+]
