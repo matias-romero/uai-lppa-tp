@@ -1,4 +1,12 @@
 # uai-lppa-tp
+Este proyecto fue presentado para el final de la materia **T109 37 - LENGUAJES DE PROGRAMACIÓN PARA LA ADMINISTRACIÓN** de la carrera Ing. en Sistemas Informáticos de la Universidad Abierta Interamericana.
+
+El objetivo era mostrar un sitio web con funcionalidades básicas de Login/Logout que muestre diferentes pantallas según el rol del usuario (Autorización basada en roles) y un caso de uso funcional que es la solicitud de turnos en un calendario.
+Las restricciones impuestas por la cátedra son:
+* Debe utilizar controles WebForms
+* La autenticación debe hacerse mediante Cookies
+* (Opcional) Consumo de un servicio web
+
 El código se encuentra divido en 3 proyectos codificados en C#. 
 * SaludArTE.Entities 
   * Es la capa de entidades
