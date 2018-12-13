@@ -17,6 +17,7 @@
         <tbody id="logRecords">
         </tbody>
     </table>
+    <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click"/>
     <script>
         $(function() {
             $.getJSON("<%=Page.ResolveUrl("~/api/Logs")%>", function (logEntries) {

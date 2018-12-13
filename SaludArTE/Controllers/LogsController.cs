@@ -7,6 +7,7 @@ using SaludArTE.Models.Repositories;
 
 namespace SaludArTE.Controllers
 {
+    [AllowAnonymous]
     public class LogsController : ApiController
     {
         private readonly ILogEntriesRepository _repository;

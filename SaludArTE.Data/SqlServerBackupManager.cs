@@ -25,6 +25,7 @@ namespace SaludArTE.Data
             //Cambio a la master asociada
             _cnnStringBuilder = new SqlConnectionStringBuilder(_currentDatabase.Connection.ConnectionString);
             _cnnStringBuilder.AttachDBFilename = "";
+            _cnnStringBuilder.InitialCatalog = "master";
             var masterCnnString = _cnnStringBuilder.ToString();
             _masterDbConnection = new System.Data.SqlClient.SqlConnection(masterCnnString);
         }
@@ -41,9 +42,11 @@ namespace SaludArTE.Data
             _masterDbConnection.Open();
             try
             {
-                var sql = string.Format("ALTER DATABASE [{0}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{0}] FROM DISK = '{1}' WITH RECOVERY", _databaseName, name);
+                var sql = string.Format("ALTER DATABASE [{0}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{0}] FROM DISK = '{1}' WITH REPLACE", _databaseName, name);
+                //var sql = string.Format("DROP DATABASE [{0}]; RESTORE DATABASE [{0}] FROM DISK = '{1}' WITH RECOVERY", _databaseName, name);
                 var command = _masterDbConnection.CreateCommand();
                 command.CommandText = sql;
+                command.CommandTimeout = 0;
                 command.ExecuteNonQuery();
             }
             catch (Exception)
